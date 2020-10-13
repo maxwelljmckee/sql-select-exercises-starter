@@ -208,11 +208,9 @@ INNER JOIN cities ON airports.city_id = cities.id;
 */
 
 -- your query here
-COUNT(
-SELECT airports.name FROM airports
+SELECT COUNT(*) FROM airports
 INNER JOIN cities ON airports.city_id = cities.id
-WHERE city = 'New York'
-);
+WHERE city = 'New York';
 
 --------------------------------------------------------------------------------
 ---- Bonuses:
@@ -231,6 +229,10 @@ B.1) Apostrophe: Write a SQL query to get all three ID codes (the Federal
 */
 
 -- your query here
+SELECT name, FAA_id, IATA_id, ICAO_id from airports
+WHERE name LIKE '%''%';
+
+
 
 \echo ========= Problem B.2 ====================================================
 \echo
@@ -244,6 +246,8 @@ B.2) Formatting Commas: Refactor Phase 2, Query #1 to turn the INT for estimated
 */
 
 -- your query here
+SELECT city, state, TO_CHAR(population_estimate_2018, '0,000,000') FROM cities;
+
 
 \echo ========= Problem B.3 ====================================================
 \echo
@@ -261,6 +265,7 @@ B.3) Decimals and Rounding: Refactor Phase 3, Query #5 to turn number of
 
 -- your query here
 
+
 \echo ========= Problem B.4 ====================================================
 \echo
 /*
@@ -270,7 +275,7 @@ B.4) ORDER BY and LIMIT Clauses: Refactor Phase 3, Query #10 to return only one
      for that city.
      (Note: You'll do the same calculation as before, but instead of comparing
       it to 200,000, use the ORDER BY Clause with the LIMIT Clause to sort the
-      results and grab only the top result.)
+      results and grab only the top result.
 
      * Phase 3, Query #10: Write a SQL query that uses a WHERE clause to find
        the cities where the population has increased by over 200,000 people from
@@ -279,5 +284,6 @@ B.4) ORDER BY and LIMIT Clauses: Refactor Phase 3, Query #10 to return only one
 */
 
 -- your query here
+
 
 \echo ========= (done!) ========================================================
