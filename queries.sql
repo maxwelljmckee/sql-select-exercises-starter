@@ -93,7 +93,8 @@ WHERE population_estimate_2018 BETWEEN 800000 AND 900000;
 */
 
 -- your query here
-
+SELECT city, population_estimate_2018 FROM cities
+WHERE population_estimate_2018 > 1000000;
 
 
 \echo ========= Problem 3.5 ====================================================
@@ -105,7 +106,8 @@ WHERE population_estimate_2018 BETWEEN 800000 AND 900000;
 */
 
 -- your query here
-
+SELECT city, (population_estimate_2018 / 1000000) FROM cities
+WHERE state = 'Texas';
 \echo ========= Problem 3.6 ====================================================
 \echo
 /*
@@ -118,6 +120,8 @@ WHERE population_estimate_2018 BETWEEN 800000 AND 900000;
 */
 
 -- your query here
+SELECT city, state, population_estimate_2018 FROM cities
+WHERE state NOT IN ('New York', 'California', 'Texas');
 
 \echo ========= Problem 3.7 ====================================================
 \echo
